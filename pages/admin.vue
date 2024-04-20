@@ -1,5 +1,12 @@
 <template>
   <div>
+    <h1 class="mt-3 mb-10">Hi pi 👉👈 {{ data?.user?.name }}</h1>
+    <NuxtLink
+      to="/department"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Department
+    </NuxtLink>
     <!-- Form Modal -->
     <div class="modal h-screen w-full">
       <div class="modal-wrapper bg-white p-4 rounded-lg w-10/12">
@@ -55,11 +62,16 @@
           </div>
         </form>
       </div>
+      <v-btn class="rounded-xl shadow-xl p-2 m-2" @click="signOut()">
+        sign out
+      </v-btn>
     </div>
   </div>
 </template>
 
 <script setup>
+definePageMeta({ middleware: "auth" });
+const { data, signOut } = useAuth();
 // Creating Report Incident Logic
 const department = ref({
   departments: "",
