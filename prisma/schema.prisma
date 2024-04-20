@@ -14,10 +14,11 @@ datasource db {
   url  	    = env("DATABASE_URL")
 }
 
-model Career {
+model Department {
   id            String   @id @default(cuid())
-  title         String
+  department    String
   description   String   @db.VarChar(500)
+  services      String   @db.VarChar(500)
   isArchive     Boolean @default(false)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt

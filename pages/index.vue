@@ -4,8 +4,9 @@
     {{ departments?.length || 0 }} records:
     <pre>{{ departments }}</pre>
     <div v-for="MisnVis in departments" :key="MisnVis.id">
-      <h1>{{ MisnVis.title }}</h1>
+      <h1>{{ MisnVis.department }}</h1>
       <h4>{{ MisnVis.description }}</h4>
+      <h4>{{ MisnVis.services }}</h4>
     </div>
     <!-- Form Modal -->
     <div class="modal h-screen w-full">
@@ -19,7 +20,7 @@
               >Title:</label
             >
             <textarea
-              v-model="department.title"
+              v-model="department.department"
               class="w-full p-2 border rounded mb-4"
               placeholder="Brief Description of an Incident"
               rows="2"
@@ -32,6 +33,13 @@
             >
             <textarea
               v-model="department.description"
+              class="w-full p-2 border rounded mb-4"
+              placeholder="Brief Description of an Incident"
+              rows="2"
+              required
+            ></textarea>
+            <textarea
+              v-model="department.services"
               class="w-full p-2 border rounded mb-4"
               placeholder="Brief Description of an Incident"
               rows="2"
@@ -64,31 +72,34 @@ const { data: departments } = useFetch("/api/departments");
 
 // Creating Report Incident Logic
 const department = ref({
-  title: "",
+  departments: "",
   description: "",
+  services: "",
 });
 
 const addDepartment = async (department) => {
   try {
-    const addedReport = await $fetch("/api/departments", {
+    const addedDepartment = await $fetch("/api/departments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: department.title,
+        department: department.department,
         description: department.description,
+        services: department.services,
       }),
     });
-    if (addedReport) {
+    if (addedDepartment) {
       // Reset form fields
-      department.title = "";
+      department.department = "";
       department.description = "";
+      department.services = "";
 
       // Update the list of report
       incidents.value = await $fetch("/api/departments");
     } else {
-      console.error("Error adding report:", addedReport);
+      console.error("Error adding report:", addedDepartment);
       // Handle the case where the report was not added successfully
     }
   } catch (error) {

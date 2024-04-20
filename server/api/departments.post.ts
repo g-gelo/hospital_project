@@ -2,12 +2,13 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   let dept = null;
 
-  if (body.title && body.description)
-    await event.context.prisma.career
+  if (body.department && body.description && body.services)
+    await event.context.prisma.department
       .create({
         data: {
-          title: body.title,
+          department: body.department,
           description: body.description,
+          services: body.services,
         },
       })
       .then((response) => {
