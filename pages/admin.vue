@@ -10,18 +10,18 @@
     <!-- Form Modal -->
     <div class="modal h-screen w-full">
       <div class="modal-wrapper bg-white p-4 rounded-lg w-10/12">
-        <h1 class="font-bold text-lg mb-4 mt-2">Report an Incident</h1>
+        <h1 class="font-bold text-lg mb-4 mt-2">Add Department</h1>
         <form class="space-y-4" @submit.prevent="addDepartment(department)">
           <div>
             <label
-              for="description"
+              for="department"
               class="block text-sm font-medium text-gray-700 mb-2"
-              >Title:</label
+              >Department:</label
             >
             <textarea
               v-model="department.department"
               class="w-full p-2 border rounded mb-4"
-              placeholder="Brief Description of an Incident"
+              placeholder="Department"
               rows="2"
               required
             ></textarea>
@@ -33,14 +33,19 @@
             <textarea
               v-model="department.description"
               class="w-full p-2 border rounded mb-4"
-              placeholder="Brief Description of an Incident"
+              placeholder="Description of Department"
               rows="2"
               required
             ></textarea>
+            <label
+              for="description"
+              class="block text-sm font-medium text-gray-700 mb-2"
+              >Services:</label
+            >
             <textarea
               v-model="department.services"
               class="w-full p-2 border rounded mb-4"
-              placeholder="Brief Description of an Incident"
+              placeholder="Services"
               rows="2"
               required
             ></textarea>
