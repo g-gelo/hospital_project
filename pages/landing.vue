@@ -15,10 +15,10 @@
       <nav
         class="flex-none gap-x-8 font-bold text-lg tracking-wide uppercase pr-12"
       >
-        <a href="#hero" class="text-black">Home</a>
-        <a href="#" class="text-black">About</a>
-        <a href="#" class="text-black">Clinical Departments</a>
-        <a href="#" class="text-black">Contact</a>
+        <a href="#hero" class="text-[#96C902]">Home</a>
+        <a href="#" class="text-[#96C902]">About</a>
+        <a href="#" class="text-[#96C902]">Clinical Departments</a>
+        <a href="#" class="text-[#96C902]">Contact</a>
       </nav>
     </header>
 
