@@ -39,7 +39,7 @@
           ref="pngImageRef"
           src="/assets/img/department.png"
           alt=""
-          class="card transition-opacity duration-500"
+          class="card transition-opacity"
         />
       </div>
     </div>
@@ -68,7 +68,7 @@
               />
               <div class="mt-4 text-center">
                 <h3 class="text-xl font-semibold">{{ doctor.name }}</h3>
-                <p>{{ doctor.speciality }}</p>
+                <p>{{ doctor.specialty }}</p>
               </div>
             </div>
           </div>
@@ -136,32 +136,32 @@ onMounted(() => {
 const doctors = ref([
   {
     name: "Dr. John Doe",
-    speciality: "Cardiology",
+    specialty: "Cardiology",
     image: "https://via.placeholder.com/250x250?text=Doctor+1",
   },
   {
     name: "Dr. Jane Smith",
-    speciality: "Pediatrics",
+    specialty: "Pediatrics",
     image: "https://via.placeholder.com/250x250?text=Doctor+2",
   },
   {
     name: "Dr. Michael Johnson",
-    speciality: "Dermatology",
+    specialty: "Dermatology",
     image: "https://via.placeholder.com/250x250?text=Doctor+3",
   },
   {
     name: "Dr. Michael Johnson",
-    speciality: "Dermatology",
+    specialty: "Dermatology",
     image: "https://via.placeholder.com/250x250?text=Doctor+4",
   },
   {
     name: "Dr. Michael Johnson",
-    speciality: "Dermatology",
+    specialty: "Dermatology",
     image: "https://via.placeholder.com/250x250?text=Doctor+5",
   },
   {
     name: "Dr. Michael Johnson",
-    speciality: "Dermatology",
+    specialty: "Dermatology",
     image: "https://via.placeholder.com/250x250?text=Doctor+6",
   },
 ]);
@@ -176,9 +176,11 @@ const doctorsWithDuplicate = computed(() => [
 ]);
 
 const duration = computed(() => {
-  const totalWidth = doctorsWithDuplicate.value.length * 280; // Assuming each card is 280px wide (64px image + 200px content + 16px margin)
-  const viewportWidth = window.innerWidth;
-  return (totalWidth / viewportWidth) * 20; // 20 seconds for one loop
+  if (process.client && typeof window !== "undefined") {
+    const totalWidth = doctorsWithDuplicate.value.length * 280;
+    const viewportWidth = window.innerWidth;
+    return (totalWidth / viewportWidth) * 20;
+  }
 });
 </script>
 
