@@ -14,11 +14,14 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.0.0",
+    "@nuxtjs/color-mode": "^3.4.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@prisma/client": "^5.12.1",
     "@sidebase/nuxt-auth": "^0.7.2",
+    "animate.css": "^4.1.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "intersection-observer": "^0.12.2",
     "nuxt": "^3.11.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
