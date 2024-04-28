@@ -24,9 +24,10 @@
 
     <div id="hero" class="hero relative">
       <video
+        ref="videoRef"
         src="assets/video/SiSh-Hero-Video.mp4"
         autoplay
-        :muted="isMuted"
+        muted
         loop
         class="w-screen h-auto"
       ></video>
@@ -46,8 +47,18 @@
         class="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-full"
         @click="toggleMute"
       >
-        <span v-if="isMuted">Unmute</span>
-        <span v-else>Mute</span>
+        <img
+          v-if="isMuted"
+          class="fill-current"
+          src="/assets/icons/mute.svg"
+          alt="Mute"
+        />
+        <img
+          v-else
+          class="fill-current"
+          src="/assets/icons/unmute.svg"
+          alt="Unmute"
+        />
       </button>
     </div>
 
@@ -191,7 +202,7 @@ const duration = computed(() => {
 });
 
 const videoRef = ref(null);
-const isMuted = ref(false);
+const isMuted = ref(true);
 
 const toggleMute = () => {
   isMuted.value = !isMuted.value;
