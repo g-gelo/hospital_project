@@ -42,13 +42,23 @@
         >
           Find Your Doctor
         </h2>
-        <div class="relative overflow-hidden pt-32">
+
+        <div class="mb-6">
+          <input
+            v-model="searchQuery"
+            type="text"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholder="Search doctors..."
+          />
+        </div>
+
+        <div class="relative overflow-hidden pt-20">
           <div
             class="flex carousel-container"
             :style="{ animationDuration: `${duration}s` }"
           >
             <div
-              v-for="(doctor, index) in doctorsWithDuplicate"
+              v-for="(doctor, index) in filteredDoctors"
               :key="index"
               class="doctor-card flex-none mr-8"
             >
@@ -210,13 +220,39 @@ const doctorsWithDuplicate = computed(() => [
   doctors.value[4],
 ]);
 
-const duration = computed(() => {
+const searchQuery = ref("");
+
+const filteredDoctors = computed(() => {
+  if (!searchQuery.value) {
+    return doctorsWithDuplicate.value;
+  }
+
+  const query = searchQuery.value.toLowerCase();
+  return doctorsWithDuplicate.value.filter(
+    (doctor) =>
+      doctor.name.toLowerCase().includes(query) ||
+      doctor.specialty.toLowerCase().includes(query)
+  );
+});
+
+const duration = ref(20); // Initial duration for the marquee animation
+
+watch(searchQuery, (newValue) => {
+  if (newValue) {
+    duration.value = 0; // Stop the animation when there is a search query
+  } else {
+    duration.value = computeDuration(); // Restore the animation when the search query is empty
+  }
+});
+
+const computeDuration = () => {
   if (process.client && typeof window !== "undefined") {
     const totalWidth = doctorsWithDuplicate.value.length * 280;
     const viewportWidth = window.innerWidth;
     return (totalWidth / viewportWidth) * 20;
   }
-});
+  return 20; // Default duration if window is not available
+};
 
 const videoRef = ref(null);
 const isMuted = ref(true);
