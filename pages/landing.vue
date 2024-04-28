@@ -1,23 +1,5 @@
 <template>
   <div class="body">
-    <header
-      class="navbar w-full p-4 bg-white bg-opacity-50 backdrop-filter flex items-center justify-between sticky top-0 z-50"
-    >
-      <div class="flex-1">
-        <a href="#">
-          <img src="/img/logo.png" alt="" class="w-1/2 mix-blend-multiply" />
-        </a>
-      </div>
-      <nav
-        class="flex-none gap-x-8 font-bold text-lg tracking-wide uppercase pr-12"
-      >
-        <a href="#hero" class="text-[#96C902]">Home</a>
-        <a href="#" class="text-[#96C902]">About</a>
-        <a href="#" class="text-[#96C902]">Clinical Departments</a>
-        <a href="#" class="text-[#96C902]">Contact</a>
-      </nav>
-    </header>
-
     <div id="hero" class="hero relative">
       <video
         ref="videoRef"
@@ -248,11 +230,6 @@ const toggleMute = () => {
 </script>
 
 <style scoped>
-.backdrop-filter {
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
 .carousel-container {
   animation: marquee linear infinite;
   animation-duration: inherit;
