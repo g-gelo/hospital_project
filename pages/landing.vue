@@ -24,9 +24,9 @@
 
     <div id="hero" class="hero relative">
       <video
-        src="assets/video/SiSh-Video.mp4"
+        src="assets/video/SiSh-Hero-Video.mp4"
         autoplay
-        muted
+        :muted="isMuted"
         loop
         class="w-screen h-auto"
       ></video>
@@ -42,6 +42,13 @@
           class="card transition-opacity"
         />
       </div>
+      <button
+        class="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-full"
+        @click="toggleMute"
+      >
+        <span v-if="isMuted">Unmute</span>
+        <span v-else>Mute</span>
+      </button>
     </div>
 
     <div class="find-doctor-section w-full h-screen">
@@ -182,6 +189,16 @@ const duration = computed(() => {
     return (totalWidth / viewportWidth) * 20;
   }
 });
+
+const videoRef = ref(null);
+const isMuted = ref(false);
+
+const toggleMute = () => {
+  isMuted.value = !isMuted.value;
+  if (videoRef.value) {
+    videoRef.value.muted = isMuted.value;
+  }
+};
 </script>
 
 <style scoped>
