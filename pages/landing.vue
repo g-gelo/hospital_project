@@ -5,11 +5,7 @@
     >
       <div class="flex-1">
         <a href="#">
-          <img
-            src="/assets/img/logo.png"
-            alt=""
-            class="w-1/2 mix-blend-multiply"
-          />
+          <img src="/img/logo.png" alt="" class="w-1/2 mix-blend-multiply" />
         </a>
       </div>
       <nav
@@ -25,7 +21,7 @@
     <div id="hero" class="hero relative">
       <video
         ref="videoRef"
-        src="assets/video/SiSh-Hero-Video.mp4"
+        src="/video/SiSh-Hero-Video.mp4"
         autoplay
         muted
         loop
@@ -38,7 +34,7 @@
       >
         <img
           ref="pngImageRef"
-          src="/assets/img/department.png"
+          src="/img/department.png"
           alt=""
           class="card transition-opacity"
         />
@@ -50,15 +46,10 @@
         <img
           v-if="isMuted"
           class="fill-current"
-          src="/assets/icons/mute.svg"
+          src="/icons/mute.svg"
           alt="Mute"
         />
-        <img
-          v-else
-          class="fill-current"
-          src="/assets/icons/unmute.svg"
-          alt="Unmute"
-        />
+        <img v-else class="fill-current" src="/icons/unmute.svg" alt="Unmute" />
       </button>
     </div>
 
@@ -71,7 +62,7 @@
         </h2>
         <div class="relative overflow-hidden pt-32">
           <div
-            class="carousel-container flex whitespace-nowrap will-change-transform"
+            class="flex carousel-container"
             :style="{ animationDuration: `${duration}s` }"
           >
             <div
@@ -79,14 +70,57 @@
               :key="index"
               class="doctor-card flex-none mr-8"
             >
-              <img
-                :src="doctor.image"
-                :alt="doctor.name"
-                class="w-64 h-96 object-cover rounded-lg"
-              />
+              <button
+                class="text-white font-bold py-2 px-4 rounded focus:outline-none mb-4"
+                @click="
+                  ($event) => {
+                    showDoctorsModal = true;
+                    specificDoctor = doctor;
+                  }
+                "
+              >
+                <img
+                  :src="doctor.image"
+                  :alt="doctor.name"
+                  class="w-64 h-96 object-cover rounded-lg"
+                />
+              </button>
+
               <div class="mt-4 text-center">
                 <h3 class="text-xl font-semibold">{{ doctor.name }}</h3>
                 <p>{{ doctor.specialty }}</p>
+              </div>
+            </div>
+          </div>
+          <div
+            v-if="showDoctorsModal"
+            class="fixed top-0 left-0 right-0 bottom-0 bg-gray-500 bg-opacity-50 w-full p-8 rounded-lg shadow-md flex justify-center items-center"
+          >
+            <div class="flex flex-row bg-white rounded-lg p-6">
+              <div class="w-96 shadow-lg rounded-lg">
+                <img
+                  :src="specificDoctor.image"
+                  :alt="specificDoctor.name"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div class="w-96 px-6">
+                <div>
+                  <h2 class="text-lg font-bold mb-4">
+                    Are you sure you wan to delete this job vacancy?
+                  </h2>
+                  <p class="text-slate-600 mb-4">
+                    Title: {{ specificDoctor.name }}
+                  </p>
+                </div>
+                <div class="flex justify-end">
+                  <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    @click="showDoctorsModal = false"
+                  >
+                    Cancel
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -102,6 +136,7 @@ import "intersection-observer";
 
 const pngImageRef = ref(null);
 const showPngImage = ref(false);
+const showDoctorsModal = ref(false);
 
 onMounted(() => {
   if (process.client) {
@@ -153,9 +188,9 @@ onMounted(() => {
 
 const doctors = ref([
   {
-    name: "Dr. John Doe",
-    specialty: "Cardiology",
-    image: "https://via.placeholder.com/250x250?text=Doctor+1",
+    name: "Dr. Monica Mampusti",
+    specialty: "Pediatrics",
+    image: "/doctors/Doctor1.jpg",
   },
   {
     name: "Dr. Jane Smith",
@@ -230,5 +265,27 @@ const toggleMute = () => {
   100% {
     transform: translateX(-100%);
   }
+}
+.modal {
+  /* Position in the middle of the screen */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Background color with some transparency for a slight darkening effect */
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* Adjust width as needed */
+  width: 80%;
+
+  /* Padding for content */
+  padding: 2rem;
+
+  /* Rounded corners for a nice look */
+  border-radius: 10px;
+
+  /* Shadow for depth */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 </style>
