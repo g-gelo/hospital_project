@@ -121,7 +121,7 @@
       </div>
     </div>
     <!-- News And Events -->
-    <div class="w-full h-screen p-32 leading-relaxed">
+    <div class="w-full h-screen p-32 leading-loose">
       <h2 id="News" class="text-5xl font-semibold mb-4">News</h2>
 
       <!-- News Section -->
@@ -151,8 +151,12 @@
           </div>
         </div>
       </div>
-      <!-- Event Section -->
-      <h2 id="Events" class="text-5xl font-semibold mb-4 mt-10">Events</h2>
+    </div>
+    <!-- Event Section -->
+    <div class="w-full h-screen p-32 leading-loose">
+      <h2 id="Events" class="text-5xl font-semibold mb-4">Events</h2>
+
+      <!-- Events Section -->
       <div class="events">
         <div
           v-for="(item, index) in events"
@@ -179,7 +183,6 @@
         </div>
       </div>
     </div>
-    <div class="w-full h-screen"></div>
   </div>
 </template>
 
