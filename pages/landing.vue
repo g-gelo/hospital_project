@@ -153,7 +153,7 @@
       </div>
     </div>
     <!-- Event Section -->
-    <div class="w-full h-screen p-32 leading-loose">
+    <div class="w-full h-screen p-32 leading-loose bg-[#f5f5f5]">
       <h2 id="Events" class="text-5xl font-semibold mb-4">Events</h2>
 
       <!-- Events Section -->
@@ -180,6 +180,73 @@
             <div class="border-b-4 w-4/5"></div>
             <pre class="text-gray-600">{{ item.description }}</pre>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full relative">
+      <h2 class="text-3xl font-semibold mb-4 text-center pt-8">Testimonials</h2>
+      <!-- Left Arrow Button -->
+      <button
+        class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 m-6 rounded-full z-10"
+        @click="navigateCarousel('left')"
+      >
+        &lt;
+      </button>
+
+      <!-- Right Arrow Button -->
+      <button
+        class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 m-6 rounded-full z-10"
+        @click="navigateCarousel('right')"
+      >
+        &gt;
+      </button>
+
+      <!-- Testimonial Carousel -->
+      <div class="carousel w-full p-12">
+        <div
+          v-show="currentSlide === 0"
+          id="item1"
+          class="carousel-item w-full flex justify-center items-center"
+        >
+          <iframe
+            :src="testimonials[0].src"
+            class="size-96"
+            frameborder="0"
+          ></iframe>
+        </div>
+        <div
+          v-show="currentSlide === 1"
+          id="item2"
+          class="carousel-item w-full flex justify-center items-center"
+        >
+          <iframe
+            :src="testimonials[1].src"
+            class="size-96"
+            frameborder="0"
+          ></iframe>
+        </div>
+        <div
+          v-show="currentSlide === 2"
+          id="item3"
+          class="carousel-item w-full flex justify-center items-center"
+        >
+          <iframe
+            :src="testimonials[2].src"
+            class="size-96"
+            frameborder="0"
+          ></iframe>
+        </div>
+        <div
+          v-show="currentSlide === 3"
+          id="item4"
+          class="carousel-item w-full flex justify-center items-center"
+        >
+          <iframe
+            :src="testimonials[3].src"
+            class="size-96"
+            frameborder="0"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -416,9 +483,36 @@ const events = [
     𝗥𝗼𝗼𝗳𝘁𝗼𝗽 𝗦𝗼𝘂𝘁𝗵 𝗜𝗺𝘂𝘀 𝗦𝗽𝗲𝗰𝗶𝗮𝗹𝗶𝘀𝘁 𝗛𝗼𝘀𝗽𝗶𝘁𝗮𝗹.
     Join us today to empower your knowledge against pertussis, Register Now
     Here!  https://forms.gle/eH7FVjSBnG9sV6gf8 🩺`,
-    image: "/img/malaria.jpg",
+    image: "/img/pertussis.jpg",
   },
 ];
+
+const currentSlide = ref(0);
+
+const testimonials = [
+  { src: "https://www.youtube.com/embed/ciMaxHshvro?si=tewRJtuJL2M6V0Kl" },
+  { src: "https://www.youtube.com/embed/QujpCRDhncs?si=dmW6jBhXoQE-JYyh" },
+  {
+    src: "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FJulesceilteoshan%2Fposts%2Fpfbid02rNBd9kUbkJryjRxsQph6sp4VPxz6AX1c7AdiDGuFE4jvTdJKh8D7gtC3h9y4F7rpl&show_text=true&width=500&is_preview=true",
+  },
+  {
+    src: "https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fvincent.jacinto.56%2Fposts%2Fpfbid02VpbKNSZeJjaAHf1QKN3BsLakUcypVHE4Kx1nZDj7Fwzb6pvkJr5jr1PVRnkTGMfJl&show_text=true&width=500&is_preview=true",
+  },
+];
+
+const navigateCarousel = (direction) => {
+  if (direction === "left") {
+    currentSlide.value =
+      currentSlide.value === 0
+        ? testimonials.length - 1
+        : currentSlide.value - 1;
+  } else if (direction === "right") {
+    currentSlide.value =
+      currentSlide.value === testimonials.length - 1
+        ? 0
+        : currentSlide.value + 1;
+  }
+};
 </script>
 
 <style scoped>
@@ -456,5 +550,9 @@ const events = [
 
   /* Shadow for depth */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 </style>
