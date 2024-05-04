@@ -35,7 +35,8 @@
       </button>
     </div>
 
-    <div class="find-doctor-section w-full h-screen">
+    <!-- Find Your Doctor -->
+    <div class="find-doctor-section w-full h-screen bg-[#f5f5f5]">
       <div class="container mx-auto py-24">
         <h2
           class="text-3xl font-bold text-center mb-4 mt-12 bg-green-800 p-4 rounded-lg text-green-300 font-mono"
@@ -119,6 +120,66 @@
         </div>
       </div>
     </div>
+    <!-- News And Events -->
+    <div class="w-full h-screen p-32 leading-relaxed">
+      <h2 id="News" class="text-5xl font-semibold mb-4">News</h2>
+
+      <!-- News Section -->
+      <div class="news">
+        <div
+          v-for="(item, index) in news"
+          :key="index"
+          class="p-4 grid grid-cols-2"
+        >
+          <!-- Left Part: Title, Date, Description -->
+          <div class="col-start-1 left">
+            <!-- Adjusted width for the left part -->
+            <h3 class="text-2xl font-bold mb-2">{{ item.title }}</h3>
+            <p class="text-sm text-gray-500 mb-2">{{ item.date }}</p>
+            <div class="border-b-4 w-4/5"></div>
+            <pre class="text-gray-600">{{ item.description }}</pre>
+          </div>
+
+          <!-- Right Part: Image -->
+          <div class="col-start-2 right">
+            <!-- Adjusted width for the right part -->
+            <img
+              :src="item.image"
+              alt="News Image"
+              class="w-3/4 flex justify-end"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Event Section -->
+      <h2 id="Events" class="text-5xl font-semibold mb-4 mt-10">Events</h2>
+      <div class="events">
+        <div
+          v-for="(item, index) in events"
+          :key="index"
+          class="p-4 grid grid-cols-2"
+        >
+          <!-- Left Part: Image -->
+          <div class="col-start-1 left">
+            <!-- Adjusted width for the left part -->
+            <img
+              :src="item.image"
+              alt="News Image"
+              class="w-3/4 flex justify-end"
+            />
+          </div>
+          <!-- Right Part: Title, Date, Description -->
+          <div class="col-start-2 right">
+            <!-- Adjusted width for the left part -->
+            <h3 class="text-2xl font-bold mb-2">{{ item.title }}</h3>
+            <p class="text-sm text-gray-500 mb-2">{{ item.date }}</p>
+            <div class="border-b-4 w-4/5"></div>
+            <pre class="text-gray-600">{{ item.description }}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full h-screen"></div>
   </div>
 </template>
 
@@ -263,6 +324,98 @@ const toggleMute = () => {
     videoRef.value.muted = isMuted.value;
   }
 };
+
+const news = [
+  {
+    title:
+      "Confronting Malaria: Battling the Tiny Villain Carried by Mosquitoes",
+    date: "April 25, 2024",
+    description: `To fight malaria here are some  𝙃𝙚𝙖𝙡𝙩𝙝 𝙏𝙞𝙥𝙨  📝
+  ✅ 𝙈𝙤𝙨𝙦𝙪𝙞𝙩𝙤 𝙣𝙚𝙩𝙨 𝙛𝙤𝙧 𝙨𝙡𝙚𝙚𝙥: Sleep under special nets to keep
+  mosquitoes away at night.
+  ✅ 𝘾𝙤𝙫𝙚𝙧 𝙪𝙥: Wear long clothes to protect your skin from
+  mosquito bites.
+  ✅ 𝙎𝙩𝙖𝙮 𝙞𝙣𝙨𝙞𝙙𝙚: Try to stay indoors when mosquitoes are out,
+  especially in the evening.
+  ✅ 𝙉𝙤 𝙢𝙤𝙨𝙦𝙪𝙞𝙩𝙤 𝙝𝙤𝙢𝙚𝙨: Make sure there's no water standing around
+  your house where mosquitoes can lay eggs.
+  ✅ 𝙏𝙖𝙠𝙚 𝙨𝙥𝙚𝙘𝙞𝙖𝙡 𝙢𝙚𝙙𝙞𝙘𝙞𝙣𝙚: If you're going to a place with lots of
+  mosquitoes, take special medicine to stay safe from malaria, please
+  consult your doctor for the best medical advise. `,
+    image: "/img/malaria.jpg",
+  },
+];
+
+onMounted(() => {
+  if (process.client) {
+    const sliders = document.querySelectorAll(".left");
+
+    const appearOptions = {
+      threshold: 0.5, // Adjust the threshold value as needed
+    };
+
+    const appearOnScroll = new IntersectionObserver(
+      (entries, appearOnScroll) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(
+              "animate__animated",
+              "animate__slideInLeft"
+            );
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      },
+      appearOptions
+    );
+
+    sliders.forEach((slider) => {
+      appearOnScroll.observe(slider);
+    });
+  }
+});
+onMounted(() => {
+  if (process.client) {
+    const sliders = document.querySelectorAll(".right");
+
+    const appearOptions = {
+      threshold: 0.5, // Adjust the threshold value as needed
+    };
+
+    const appearOnScroll = new IntersectionObserver(
+      (entries, appearOnScroll) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(
+              "animate__animated",
+              "animate__slideInRight"
+            );
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      },
+      appearOptions
+    );
+
+    sliders.forEach((slider) => {
+      appearOnScroll.observe(slider);
+    });
+  }
+});
+
+const events = [
+  {
+    title:
+      "𝗟𝗲𝗰𝘁𝘂𝗿𝗲 𝗼𝗻 𝗳𝗿𝗲𝗾𝘂𝗲𝗻𝘁𝗹𝘆 𝗮𝘀𝗸𝗲𝗱 𝗾𝘂𝗲𝘀𝘁𝗶𝗼𝗻𝘀 𝗼𝗻 𝗩𝗮𝗰𝗰𝗶𝗻𝗮𝘁𝗶𝗼𝗻 𝗮𝗻𝗱 𝗣𝗲𝗿𝘁𝘂𝘀𝘀𝗶𝘀 𝗗𝗶𝘀𝗲𝗮𝘀𝗲",
+    date: "April 29, 2024",
+    description: `Guarding Against Pertussis: Empowering Communities Through
+    Vaccine Education today 𝗔𝗽𝗿𝗶𝗹 𝟮𝟵, 𝟮𝟬𝟮𝟰, 𝟯:𝟯𝟬 𝗽𝗺 𝘁𝗼 𝟱:𝟬𝟬 𝗽𝗺 𝗮𝘁 𝟳𝘁𝗵 𝗙𝗹𝗼𝗼𝗿
+    𝗥𝗼𝗼𝗳𝘁𝗼𝗽 𝗦𝗼𝘂𝘁𝗵 𝗜𝗺𝘂𝘀 𝗦𝗽𝗲𝗰𝗶𝗮𝗹𝗶𝘀𝘁 𝗛𝗼𝘀𝗽𝗶𝘁𝗮𝗹.
+    Join us today to empower your knowledge against pertussis, Register Now
+    Here!  https://forms.gle/eH7FVjSBnG9sV6gf8 🩺`,
+    image: "/img/malaria.jpg",
+  },
+];
 </script>
 
 <style scoped>
