@@ -36,7 +36,7 @@
     </div>
 
     <!-- Find Your Doctor -->
-    <div class="find-doctor-section w-full h-screen bg-[#f5f5f5]">
+    <div class="find-doctor-section w-full h-screen">
       <div class="container mx-auto py-24">
         <h2
           class="text-3xl font-bold text-center mb-4 mt-12 border-2 bg-white p-4 rounded-lg text-[#96C902]"
@@ -53,7 +53,7 @@
           />
         </div>
 
-        <div class="relative overflow-hidden pt-20">
+        <div class="relative overflow-hidden pt-16">
           <div
             class="flex carousel-container"
             :style="{ animationDuration: `${duration}s` }"
@@ -151,7 +151,7 @@
       </div>
     </div>
     <!-- News And Events -->
-    <div class="w-full h-screen p-32 leading-loose">
+    <div class="w-full h-screen p-32 leading-loose bg-[#f5f5f5]">
       <h2 id="News" class="text-5xl font-semibold mb-4">News</h2>
 
       <!-- News Section -->
@@ -183,7 +183,7 @@
       </div>
     </div>
     <!-- Event Section -->
-    <div class="w-full h-screen p-32 leading-loose bg-[#f5f5f5]">
+    <div class="w-full h-screen p-32 leading-loose">
       <h2 id="Events" class="text-5xl font-semibold mb-4">Events</h2>
 
       <!-- Events Section -->
@@ -214,7 +214,8 @@
       </div>
     </div>
 
-    <div class="w-full relative">
+    <!-- Testimonials -->
+    <div class="w-full relative bg-[#f5f5f5]">
       <h2 class="text-3xl font-semibold mb-4 text-center pt-8">Testimonials</h2>
       <!-- Left Arrow Button -->
       <button
@@ -277,6 +278,64 @@
             class="size-96"
             frameborder="0"
           ></iframe>
+        </div>
+      </div>
+    </div>
+    <!-- Affiliates -->
+    <div class="">
+      <div class="flex flex-col items-center justify-center h-3/6 my-14">
+        <h2 class="mb-8 text-2xl font-semibold leading-loose">
+          Our Affiliates
+        </h2>
+        <div class="flex space-x-4 gap-20">
+          <!-- Logo 1 -->
+          <NuxtLink
+            to="https://www.facebook.com/gentridoctorsph/"
+            class="flex-none w-36 h-36 overflow-hidden"
+            target="_blank"
+          >
+            <img
+              src="/affiliates/GenTri.png"
+              alt="Gentri Doctors Medical Center"
+              class="object-contain w-full h-full grayscale hover:grayscale-0 ease-in duration-200 hover:-translate-y-1 hover:scale-95"
+            />
+          </NuxtLink>
+          <!-- Logo 2 -->
+          <NuxtLink
+            to="https://www.facebook.com/mendezspecialistsph/"
+            class="flex-none w-36 h-36 overflow-hidden"
+            target="_blank"
+          >
+            <img
+              src="/affiliates/Mendez.png"
+              alt="Mendez Specialists Medical Center"
+              class="object-contain w-full h-full grayscale hover:grayscale-0 ease-in duration-200 hover:-translate-y-1 hover:scale-95"
+            />
+          </NuxtLink>
+          <!-- Logo 3 -->
+          <NuxtLink
+            to="https://www.facebook.com/silangspecialists.medicalcenter"
+            class="flex-none w-36 h-36 overflow-hidden"
+            target="_blank"
+          >
+            <img
+              src="/affiliates/Silang.png"
+              alt="Silang Specialist Medical Center"
+              class="object-contain w-full h-full grayscale hover:grayscale-0 ease-in duration-200 hover:-translate-y-1 hover:scale-95"
+            />
+          </NuxtLink>
+          <!-- Logo 4 -->
+          <NuxtLink
+            to="https://www.facebook.com/tanzaspecialists"
+            class="flex-none w-36 h-36 overflow-hidden"
+            target="_blank"
+          >
+            <img
+              src="/affiliates/Tanza.png"
+              alt="Tanza Specialist Medical Center"
+              class="object-contain w-full h-full grayscale hover:grayscale-0 ease-in duration-200 hover:-translate-y-1 hover:scale-95"
+            />
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -624,5 +683,15 @@ const navigateCarousel = (direction) => {
 
 .carousel-item {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Add grayscale effect by default */
+.grayscale {
+  filter: grayscale(100%);
+}
+
+/* Remove grayscale effect on hover */
+.hover\:grayscale-0:hover {
+  filter: grayscale(0%);
 }
 </style>
