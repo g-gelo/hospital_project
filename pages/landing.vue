@@ -491,7 +491,7 @@ onMounted(() => {
     const sliders = document.querySelectorAll(".left");
 
     const appearOptions = {
-      threshold: 0.5, // Adjust the threshold value as needed
+      threshold: 0, // Adjust the threshold value as needed
     };
 
     const appearOnScroll = new IntersectionObserver(
@@ -519,7 +519,7 @@ onMounted(() => {
     const sliders = document.querySelectorAll(".right");
 
     const appearOptions = {
-      threshold: 0.5, // Adjust the threshold value as needed
+      threshold: 0, // Adjust the threshold value as needed
     };
 
     const appearOnScroll = new IntersectionObserver(
