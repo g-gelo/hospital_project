@@ -345,7 +345,7 @@ const doctors = ref([
     specialty: "Pedia Clinic 2",
     availability: "Tuesday, Thursday, and Saturday, 3:00 PM - 5:00 PM",
     contact: "0964-198-2283",
-    image: "/doctors/Pedia/Pauline-pugay.jpg",
+    image: "/doctors/Pedia/Pauline-Pugay.jpg",
   },
   {
     name: "Dr. Francesca Isabel Bunyi",
@@ -373,21 +373,21 @@ const doctors = ref([
     availability: "Wednesday 1:00 AM - 3:00 PM, Saturday 8:00 AM - 10:00 AM",
     specialty: "OPD Clinic",
     contact: "0963-712-5160",
-    image: "/doctors/InternMedi/Andrew-villafuerte.jpg",
+    image: "/doctors/InternMedi/Andrew-Villafuerte.jpg",
   },
   {
     name: "Dr. Carl Angelo Amante",
     availability: "Monday 12:00 NN - 2:00 PM",
     specialty: "OPD Clinic",
     contact: "0963-712-5160",
-    image: "/doctors/InternMedi/Carl-angelo-amante.jpg",
+    image: "/doctors/InternMedi/Carl-Angelo-Amante.jpg",
   },
   {
     name: "Dr. Jindra Fatima Abear",
     availability: "Monday and Friday 1:00 PM - 3:00 PM",
     specialty: "OPD Clinic",
     contact: "0963-712-5160",
-    image: "/doctors/InternMedi/Jindra-fatima-abear.jpg",
+    image: "/doctors/InternMedi/Jindra-Fatima-Abear.jpg",
   },
   {
     name: "Dr. Joyce Angelie Cantada",
@@ -401,14 +401,14 @@ const doctors = ref([
     availability: "Monday, Wednesday, and Friday, 10:00 AM - 12:00 NN",
     specialty: "OPD Clinic",
     contact: "0963-712-5160",
-    image: "/doctors/InternMedi/Troy-dizon.jpg",
+    image: "/doctors/InternMedi/Troy-Dizon.jpg",
   },
   {
     name: "Dr. Troy Dizon",
     availability: "Monday, Wednesday, and Friday, 10:00 AM - 12:00 NN",
     specialty: "OPD Clinic",
     contact: "0963-712-5160",
-    image: "/doctors/InternMedi/Troy-dizon.jpg",
+    image: "/doctors/InternMedi/Troy-Dizon.jpg",
   },
 ]);
 
