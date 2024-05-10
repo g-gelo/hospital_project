@@ -39,7 +39,7 @@
     <div class="find-doctor-section w-full h-screen bg-[#f5f5f5]">
       <div class="container mx-auto py-24">
         <h2
-          class="text-3xl font-bold text-center mb-4 mt-12 bg-green-800 p-4 rounded-lg text-green-300 font-mono"
+          class="text-3xl font-bold text-center mb-4 mt-12 border-2 bg-white p-4 rounded-lg text-[#96C902]"
         >
           Find Your Doctor
         </h2>
@@ -87,7 +87,7 @@
           </div>
           <div
             v-if="showDoctorsModal"
-            class="fixed top-0 left-0 right-0 bottom-0 bg-gray-500 bg-opacity-50 w-full p-8 rounded-lg shadow-md flex justify-center items-center"
+            class="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 bg-opacity-60 w-full p-8 flex justify-center items-center z-40"
           >
             <div class="flex flex-row bg-white rounded-lg p-6">
               <div class="w-96 shadow-lg rounded-lg">
@@ -99,16 +99,46 @@
               </div>
               <div class="w-96 px-6">
                 <div>
-                  <h2 class="text-lg font-bold mb-4">
-                    Are you sure you wan to delete this job vacancy?
+                  <h2 class="text-4xl font-bold mb-6 text-[#96C902]">
+                    Meet Your Doctor
                   </h2>
-                  <p class="text-slate-600 mb-4">
-                    Title: {{ specificDoctor.name }}
-                  </p>
+                  <div class="border-b-4 border-gray-400 mb-6"></div>
+                  <div class="mb-4">
+                    <p class="text-[#96C902] font-semibold text-2xl mb-4">
+                      Name:
+                    </p>
+                    <p class="text-gray-600 text-xl font-medium">
+                      {{ specificDoctor.name }}
+                    </p>
+                  </div>
+                  <div class="mb-4">
+                    <p class="text-[#96C902] font-semibold text-2xl mb-4">
+                      Department:
+                    </p>
+                    <p class="text-gray-600 text-xl font-medium">
+                      {{ specificDoctor.specialty }}
+                    </p>
+                  </div>
+                  <div class="mb-4">
+                    <p class="text-[#96C902] font-semibold text-2xl mb-4">
+                      Availability:
+                    </p>
+                    <p class="text-gray-600 text-xl font-medium">
+                      {{ specificDoctor.availability }}
+                    </p>
+                  </div>
+                  <div class="mb-4">
+                    <p class="text-[#96C902] font-semibold text-2xl mb-4">
+                      Contact Number:
+                    </p>
+                    <p class="text-gray-600 text-xl font-medium">
+                      {{ specificDoctor.contact }}
+                    </p>
+                  </div>
                 </div>
-                <div class="flex justify-end">
+                <div class="flex justify-end mt-6">
                   <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg"
                     @click="showDoctorsModal = false"
                   >
                     Cancel
@@ -311,34 +341,74 @@ onMounted(() => {
 
 const doctors = ref([
   {
-    name: "Dr. Monica Mampusti",
-    specialty: "Pediatrics",
-    image: "/doctors/Doctor1.jpg",
+    name: "Dr. Paulin Pugay",
+    specialty: "Pedia Clinic 2",
+    availability: "Tuesday, Thursday, and Saturday, 3:00 PM - 5:00 PM",
+    contact: "0964-198-2283",
+    image: "/doctors/Pedia/Pauline-pugay.jpg",
   },
   {
-    name: "Dr. Jane Smith",
-    specialty: "Pediatrics",
-    image: "https://via.placeholder.com/250x250?text=Doctor+2",
+    name: "Dr. Francesca Isabel Bunyi",
+    availability: "Monday, Wednesday and Friday, 8:00 AM - 10 AM",
+    specialty: "OPD Clinic",
+    contact: "0905-563-4633",
+    image: "/doctors/ObGyne/Francesca-Isabel-Bunyi.jpg",
   },
   {
-    name: "Dr. Michael Johnson",
-    specialty: "Dermatology",
-    image: "https://via.placeholder.com/250x250?text=Doctor+3",
+    name: "Dr. Annalyn Pangan",
+    availability: "Monday and Wednesday, 1:00 AM - 3 PM",
+    specialty: "OPD Clinic",
+    contact: "0905-563-4633",
+    image: "/doctors/ObGyne/Annalyn-Pangan.jpg",
   },
   {
-    name: "Dr. Michael Johnson",
-    specialty: "Dermatology",
-    image: "https://via.placeholder.com/250x250?text=Doctor+4",
+    name: "Dr. Catherine Costa",
+    availability: "Tuesday, Thursday and Saturday, 1:00 AM - 3 PM",
+    specialty: "OPD Clinic",
+    contact: "0905-563-4633",
+    image: "/doctors/ObGyne/Catherine-Costa.jpg",
   },
   {
-    name: "Dr. Michael Johnson",
-    specialty: "Dermatology",
-    image: "https://via.placeholder.com/250x250?text=Doctor+5",
+    name: "Dr. Andrew Villafuerte",
+    availability: "Wednesday 1:00 AM - 3:00 PM, Saturday 8:00 AM - 10:00 AM",
+    specialty: "OPD Clinic",
+    contact: "0963-712-5160",
+    image: "/doctors/InternMedi/Andrew-villafuerte.jpg",
   },
   {
-    name: "Dr. Michael Johnson",
-    specialty: "Dermatology",
-    image: "https://via.placeholder.com/250x250?text=Doctor+6",
+    name: "Dr. Carl Angelo Amante",
+    availability: "Monday 12:00 NN - 2:00 PM",
+    specialty: "OPD Clinic",
+    contact: "0963-712-5160",
+    image: "/doctors/InternMedi/Carl-angelo-amante.jpg",
+  },
+  {
+    name: "Dr. Jindra Fatima Abear",
+    availability: "Monday and Friday 1:00 PM - 3:00 PM",
+    specialty: "OPD Clinic",
+    contact: "0963-712-5160",
+    image: "/doctors/InternMedi/Jindra-fatima-abear.jpg",
+  },
+  {
+    name: "Dr. Joyce Angelie Cantada",
+    availability: "Monday 1:00 PM - 3:00 PM, Tuesday 9:00 AM - 12:00 NN",
+    specialty: "OPD Clinic",
+    contact: "0963-712-5160",
+    image: "/doctors/InternMedi/Joyce-Angelie-Cantada.jpg",
+  },
+  {
+    name: "Dr. Troy Dizon",
+    availability: "Monday, Wednesday, and Friday, 10:00 AM - 12:00 NN",
+    specialty: "OPD Clinic",
+    contact: "0963-712-5160",
+    image: "/doctors/InternMedi/Troy-dizon.jpg",
+  },
+  {
+    name: "Dr. Troy Dizon",
+    availability: "Monday, Wednesday, and Friday, 10:00 AM - 12:00 NN",
+    specialty: "OPD Clinic",
+    contact: "0963-712-5160",
+    image: "/doctors/InternMedi/Troy-dizon.jpg",
   },
 ]);
 
