@@ -219,18 +219,26 @@
       <h2 class="text-3xl font-semibold mb-4 text-center pt-8">Testimonials</h2>
       <!-- Left Arrow Button -->
       <button
-        class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 m-6 rounded-full z-10"
+        class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 p-2 m-6 rounded-full z-10"
         @click="navigateCarousel('left')"
       >
-        &lt;
+        <img
+          class="fill-current"
+          src="/icons/arrow-left.svg"
+          alt="arrow-left"
+        />
       </button>
 
       <!-- Right Arrow Button -->
       <button
-        class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 m-6 rounded-full z-10"
+        class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 p-2 m-6 rounded-full z-10"
         @click="navigateCarousel('right')"
       >
-        &gt;
+        <img
+          class="fill-current"
+          src="/icons/arrow-right.svg"
+          alt="arrow-right"
+        />
       </button>
 
       <!-- Testimonial Carousel -->
