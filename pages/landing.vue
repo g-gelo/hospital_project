@@ -379,7 +379,7 @@ onMounted(() => {
 
     const sliders = document.querySelectorAll(".card");
     const appearOptions = {
-      threshold: 0.5,
+      threshold: 0,
     };
 
     const appearOnScroll = new IntersectionObserver(
