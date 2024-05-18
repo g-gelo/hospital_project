@@ -11,14 +11,14 @@
       ></video>
       <div class="absolute inset-0 bg-green-800 mix-blend-overlay"></div>
       <div
-        class="absolute left-10 bottom-10 -translate-y-1/2"
+        class="absolute left-10 right-10 bottom-5 md:-translate-y-1/2 md:left-10 md:bottom-10"
         :class="{ 'opacity-100': showPngImage, 'opacity-0': !showPngImage }"
       >
         <img
           ref="pngImageRef"
           src="/img/department.png"
           alt=""
-          class="card transition-opacity"
+          class="card transition-opacity md:w-auto md:h-auto"
         />
       </div>
       <button
@@ -530,6 +530,7 @@ const toggleMute = () => {
   if (videoRef.value) {
     videoRef.value.muted = isMuted.value;
   }
+  showPngImage.value = isMuted.value;
 };
 
 const news = [
