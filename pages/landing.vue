@@ -303,7 +303,9 @@
         <h2 class="mb-8 text-2xl font-semibold leading-loose">
           Our Affiliates
         </h2>
-        <div class="flex space-x-4 gap-20">
+        <div
+          class="flex md:space-x-4 md:gap-20 flex-wrap gap-12 justify-center items-center"
+        >
           <!-- Logo 1 -->
           <NuxtLink
             to="https://www.facebook.com/gentridoctorsph/"
