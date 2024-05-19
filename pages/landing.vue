@@ -177,7 +177,7 @@
             </h3>
             <p class="text-sm text-gray-500 mb-2">{{ item.date }}</p>
             <div class="border-b-4 w-4/5"></div>
-            <div class="text-gray-600 md:text-normal break-words">
+            <div class="text-gray-600 md:text-normal break-words text-justify">
               {{ item.description }}
             </div>
           </div>
@@ -192,8 +192,10 @@
       </div>
     </div>
     <!-- Event Section -->
-    <div class="w-full h-screen p-32 leading-loose">
-      <h2 id="Events" class="text-5xl font-semibold mb-4">Events</h2>
+    <div class="w-full h-screen md:p-32 p-12 leading-loose">
+      <h2 id="Events" class="md:text-5xl text-3xl font-semibold mb-4">
+        Events
+      </h2>
 
       <!-- Events Section -->
       <div class="events">
@@ -213,10 +215,14 @@
 
           <!-- Right Part: Title, Date, Description -->
           <div class="md:w-1/2">
-            <h3 class="text-2xl font-bold mb-2">{{ item.title }}</h3>
+            <h3 class="md:text-2xl font-medium mb-2 text-xl">
+              {{ item.title }}
+            </h3>
             <p class="text-sm text-gray-500 mb-2">{{ item.date }}</p>
             <div class="border-b-4 w-4/5 mb-2"></div>
-            <div class="text-gray-600 break-words">{{ item.description }}</div>
+            <div class="text-gray-600 break-words text-justify">
+              {{ item.description }}
+            </div>
           </div>
         </div>
       </div>
