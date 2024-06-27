@@ -96,12 +96,20 @@
       <aside>
         <p>Copyright © 2024 - All right reserved by Sheesh</p>
       </aside>
+      <select
+        v-model="colorMode.preference"
+        class="select w-full max-w-xs border-3 border-green-800"
+      >
+        <option disabled selected>Theme</option>
+        <option v-for="theme of themes" :key="theme">{{ theme }}</option>
+      </select>
     </footer>
   </div>
 </template>
 
 <script setup>
-//
+const colorMode = useColorMode();
+const themes = ["system", "light", "dark"];
 </script>
 
 <style scoped>
