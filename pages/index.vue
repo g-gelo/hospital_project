@@ -2,12 +2,14 @@
   <div>
     <NuxtLink
       to="/department"
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex justify-center"
     >
-      Department
-    </NuxtLink>
-    Prisma ORM Data from the database, received
-    {{ departments?.length || 0 }} records:
+      Department </NuxtLink
+    ><br />
+    <div class="m-2 mt-4">
+      Prisma ORM Data from the database, received
+      {{ departments?.length || 0 }} records:
+    </div>
     <pre>{{ departments }}</pre>
 
     <!-- <div v-for="MisnVis in departments" :key="MisnVis.id">

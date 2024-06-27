@@ -15,12 +15,14 @@
       <nav
         class="hidden md:flex gap-x-8 font-bold text-lg tracking-wide uppercase pr-12"
       >
-        <a href="#hero" class="text-[#96C902]">Home</a>
-        <a href="#" class="text-[#96C902]">About</a>
-        <a href="#" class="text-[#96C902]">Clinical Departments</a>
-        <a href="#" class="text-[#96C902]">Contact</a>
+        <NuxtLink to="/landing" class="text-[#96C902]">Home</NuxtLink>
+        <NuxtLink to="#" class="text-[#96C902]">About</NuxtLink>
+        <NuxtLink to="/department" class="text-[#96C902]"
+          >Clinical Departments</NuxtLink
+        >
+        <NuxtLink to="#" class="text-[#96C902]">Contact</NuxtLink>
       </nav>
-      <label class="btn btn-circle swap swap-rotate">
+      <label class="btn btn-circle swap swap-rotate md:hidden">
         <!-- this hidden checkbox controls the state -->
         <input
           type="checkbox"
@@ -32,9 +34,9 @@
             <nav
               class="flex flex-col gap-y-4 font-bold text-lg tracking-wide uppercase"
             >
-              <NuxtLink to="#hero" class="text-[#96C902]">Home</NuxtLink>
+              <NuxtLink to="/landing" class="text-[#96C902]">Home</NuxtLink>
               <NuxtLink to="#" class="text-[#96C902]">About</NuxtLink>
-              <NuxtLink to="#" class="text-[#96C902]"
+              <NuxtLink to="/department" class="text-[#96C902]"
                 >Clinical Departments</NuxtLink
               >
               <NuxtLink to="#" class="text-[#96C902]">Contact</NuxtLink>
